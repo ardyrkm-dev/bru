@@ -1,0 +1,101 @@
+.bg-baru{
+    background-color: #006769;
+}
+.bg-mb{
+    background-color: white;
+}
+
+.bgC{
+    background-color: rgba(244, 244, 250,1);
+    padding: 20px;
+    overflow-y: auto;
+    color: #006769;
+}
+.bagianLoginTxt{
+    width: 100%;
+    height: 100%;
+    background-color: #006769;
+}
+.bagianPropil{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.imgPropil{
+    width: 120px;
+    height: 120px;
+    overflow: hidden; /* Untuk memastikan gambar tidak keluar dari batas container */
+    display: flex; /* Memastikan gambar mengisi container */
+    align-items: center; /* Memusatkan gambar secara vertikal */
+    justify-content: center; 
+    border-radius: 8px;
+}
+.txtDash{
+    font-size: 30px;
+    color: #048b8b;
+    font-weight: bold;
+}
+.bagianPropil h1{
+    font-size: 18px;
+    font-weight: 500;
+    color: #006769;
+}
+.btnLogout{
+    background-color: #E6FF94;
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    color: #042d2d;
+    
+}
+.formcss{
+    width: 780px;
+    height: 40px;
+    background-color: rgba(244, 244, 250,1);
+    border-radius: 6px;
+    border: #006769 solid 1px;
+    color: #042d2d;
+}
+.formcss:active{
+    background-color: #006769;
+    color: white;
+}
+.formcss:focus{
+    background-color: #006769;
+    color: white;
+}
+.tablePer{
+    padding: 5px;
+    border: #006769 solid 1px;
+    margin: auto;
+}
+th,td{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: #006769 solid 1px;
+    
+}
+.formcss:hover{
+    background-color: #006769;
+    color: white;
+}
+.btnBaru{
+    width: 120px;
+    height: 40px;
+    background-color: #006769;
+    border-radius: 4px;
+}
+.clrT{
+    color: #006769;
+    font-size: 18px;
+    font-weight: bold;
+}
+.textH{
+    font-size: 30px;
+    color: #006769;
+    font-weight: bold;
+}
+.bgTable{
+    border: #006769 solid 1px;
+    border-radius: 2px;
+}
