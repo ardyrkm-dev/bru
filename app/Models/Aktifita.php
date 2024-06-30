@@ -19,6 +19,6 @@ class Aktifita extends Model
 
     public function alternatives()
     {
-        return $this->hasMany(Alternative::class, 'aktifitas_object_id');
+        return $this->hasMany(Alternatif::class, 'aktifitas_object_id');
     }
 }

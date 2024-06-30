@@ -4,7 +4,7 @@
         <div class=" mx-auto flex flex-wrap flex-row items-center justify-between">
 
             <a href="#" class="flex text-3xl font-bold items-center">
-                SERV
+                <img src="{{asset('assets/logo2.svg')}}" style="width: 80px"  alt="">
             </a>
 
             <label for="menu-toggle" class="cursor-pointer lg:hidden block">

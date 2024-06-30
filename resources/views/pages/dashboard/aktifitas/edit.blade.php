@@ -5,12 +5,12 @@
     <h1 class="h2">Edit {{ $aktifitas->name }}</h1>
   </div>
 
-  <form class="col-lg-8" method="POST" action="{{route('aktifitas.update', $aktifitas->id)}}"  enctype="multipart/form-data">
+  <form class="col-lg-8 containerForm" method="POST" action="{{route('aktifitas.update', $aktifitas->id)}}"  enctype="multipart/form-data">
     @method('PUT')
     @csrf
 
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
+      <label for="name" class="form-label labelFormBaru">Name</label>
       <input type="text" class="form-control formcss @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name',$aktifitas->name)   }}" autofocus required>
 
       @error('name')
@@ -21,7 +21,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="deskripsi" class="form-label">Masukan Deskripsi</label>
+      <label for="deskripsi" class="form-label labelFormBaru">Masukan Deskripsi</label>
       <input type="text" class="form-control formcss @error('name') is-invalid @enderror" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $aktifitas->deskripsi) }}" autofocus required>
 
       @error('deskripsi')
@@ -32,7 +32,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="gambar" class="form-label">Masukan Gambar</label>
+      <label for="gambar" class="form-label labelFormBaru">Masukan Gambar</label>
       <input type="file" class="form-control formcss @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{ old('gambar', $aktifitas->gambar) }}" required>
 
       @error('gambar')
@@ -42,7 +42,7 @@
       @enderror
     </div>
     <div class="mb-3">
-      <label for="durasi" class="form-label">Masukan Durasi</label>
+      <label for="durasi" class="form-label labelFormBaru">Masukan Durasi</label>
       <input type="number" class="form-control formcss @error('durasi') is-invalid @enderror" id="durasi" name="durasi" value="{{ old('durasi', $aktifitas->manfaat) }}" autofocus required>
 
       @error('durasi')
@@ -52,7 +52,7 @@
       @enderror
     </div>
     <div class="mb-3">
-      <label for="kalori" class="form-label">Masukan Kalori</label>
+      <label for="kalori" class="form-label labelFormBaru">Masukan Kalori</label>
       <input type="number" class="form-control formcss @error('kalori') is-invalid @enderror" id="kalori" name="kalori" value="{{ old('kalori',$aktifitas->kalori) }}" autofocus required>
 
       @error('kalori')
@@ -62,7 +62,7 @@
       @enderror
     </div>
 
-    <button type="submit" class="btn btnBaru mb-3">Save Changes</button>
+    <button type="submit" class="btn btnBaru mb-3">Simpan</button>
     <a href="/dashboard/aktifitas" class="btn btn-danger mb-3">Cancel</a>
   </form>
 @endsection

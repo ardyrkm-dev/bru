@@ -25,7 +25,7 @@
       Buat Baru
     </button>
 
-    <table class="table table-bordered clrT">
+    <table class="table table-striped table-hover clrT">
       <thead class="table-dark bg-baru">
           <tr>
             <th class="text-center align-middle " rowspan="2">No</th>
@@ -66,7 +66,7 @@
                 @endforeach
 
                 <td class="text-center">
-                  <a href="/dashboard/alternatives/{{ $alternative->id }}/edit" class="badge bg-success text-decoration-none">
+                  <a href="/dashboard/alternatives/{{ $alternative->id }}/edit" class="btn btn-custom text-decoration-none">
                     Edit
                   </a>
 
@@ -74,7 +74,7 @@
                     @method('delete')
                     @csrf
 
-                    <span class="badge bg-danger btnDelete" data-object="Alternative" style="cursor: pointer;">
+                    <span class="btn btn-custom text-decoration-none" data-object="Alternative" style="cursor: pointer;">
                       Delete
                     </span>
                   </form>

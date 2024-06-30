@@ -24,20 +24,20 @@
         @if ($criterias->count())
           @foreach ($criterias as $criteria)
             <tr>
-              {{-- $loop->iteraion => nomor / urutan loop keberapa nya --}}
+             
               <td class="text-center clrT">{{ $loop->iteration }}</td>
               <td class="text-center clrT">{{ $criteria->name }}</td>
               <td class="text-center clrT">{{ Str::ucfirst(Str::lower($criteria->attribute)) }}</td>
               <td class="text-center clrT">
-                <a href="/dashboard/criterias/{{ $criteria->id }}/edit" class="text-decoration-none text-success">
-                  <span data-feather="edit"></span>
+                <a href="/dashboard/criterias/{{ $criteria->id }}/edit" class="btn btn-custom text-decoration-none">
+                  Update
                 </a>
                 <form action="/dashboard/criterias/{{ $criteria->id }}" method="POST" class="d-inline">
                   @method('delete')
                   @csrf
 
-                  <span role="button" class="text-decoration-none text-danger btnDelete" data-object="criteria">
-                    <span data-feather="x-circle"></span>
+                  <span role="button" class="btn btn-custom text-decoration-none" data-object="criteria">
+                  Hapus
                   </span>
                 </form>
               </td>

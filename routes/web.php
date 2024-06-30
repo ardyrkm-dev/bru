@@ -9,7 +9,14 @@ use App\Http\Controllers\DashboardRankController;
 use App\Http\Controllers\AdminAlternativeController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\AdminAktifitasController;
+use App\Http\Controllers\AktifitasController;
+use App\Http\Controllers\AlternatifCon;
 use App\Http\Controllers\DashboardCriteriaComparisonController;
+use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\PerbandinganC;
+use App\Http\Controllers\ProfilC;
+use App\Http\Controllers\RankC;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,45 +80,34 @@ Route::middleware(['auth', 'verified'])->group(function () {
     ]);
   });
 
-  Route::get('dashboard/profile', [DashboardProfileController::class, 'index']);
-  Route::put('dashboard/profile/{user}', [DashboardProfileController::class, 'update']);
+  Route::get('dashboard/profile', [ProfilC::class, 'index']);
+  Route::put('dashboard/profile/{user}', [ProfilC::class, 'update']);
 
-  Route::get('dashboard/criteria-comparisons', [DashboardCriteriaComparisonController::class, 'index']);
-  Route::post('dashboard/criteria-comparisons', [DashboardCriteriaComparisonController::class, 'store']);
+  Route::get('dashboard/kriteriaPerbandingan', [PerbandinganC::class, 'index']);
+  Route::post('dashboard/kriteriaPerbandingan', [PerbandinganC::class, 'store']);
 
-  Route::get('dashboard/criteria-comparisons/{criteria_analysis}', [DashboardCriteriaComparisonController::class, 'show']);
+  Route::get('dashboard/kriteriaPerbandingan/{criteria_analysis}', [PerbandinganC::class, 'show']);
 
-  Route::put('dashboard/criteria-comparisons/{criteria_analysis}', [DashboardCriteriaComparisonController::class, 'updateValue']);
+  Route::put('dashboard/kriteriaPerbandingan/{criteria_analysis}', [PerbandinganC::class, 'updateValue']);
 
-  Route::delete('dashboard/criteria-comparisons/{criteria_analysis}', [DashboardCriteriaComparisonController::class, 'destroy']);
+  Route::delete('dashboard/kriteriaPerbandingan/{criteria_analysis}', [PerbandinganC::class, 'destroy']);
 
-  Route::get('dashboard/criteria-comparisons/result/{criteria_analysis}', [DashboardCriteriaComparisonController::class, 'result']);
+  Route::get('dashboard/kriteriaPerbandingan/result/{criteria_analysis}', [PerbandinganC::class, 'result']);
 
-  Route::get('dashboard/final-ranking', [DashboardRankController::class, 'index']);
-  Route::get('dashboard/final-ranking/{criteria_analysis}', [DashboardRankController::class, 'show']);
+  Route::get('dashboard/matrikAlternatif', [RankC::class, 'index']);
+  Route::get('dashboard/matrikAlternatif/{criteria_analysis}', [RankC::class, 'show']);
 
   Route::resources([
 
-    'dashboard/criterias'       => AdminCriteriaController::class,
-    'dashboard/users'           => AdminUserController::class,
-    'dashboard/alternatives'    => AdminAlternativeController::class
+    'dashboard/criterias'       => KriteriaController::class,
+    'dashboard/users'           => UserController::class,
+    'dashboard/alternatives'    => AlternatifCon::class
   ], ['except' => 'show']);
 
-  Route::get('dashboard/aktifitas', [AdminAktifitasController::class, 'index'])->name('aktifitas');
-  Route::get('dashboard/aktifitas/create', [AdminAktifitasController::class, 'create'])->name('aktifitas.form');
-  Route::post('dashboard/aktifitas/createP', [AdminAktifitasController::class, 'store'])->name('aktifitas.tambah');
-  Route::get('dashboard/aktifitas/{aktifitas}/edit', [AdminAktifitasController::class, 'edit'])->name('aktifitas.form.edit');
-  Route::put('dashboard/aktifitas/update/{aktifitas}', [AdminAktifitasController::class, 'update'])->name('aktifitas.update');
-  Route::delete('dashboard/aktifitas/destroy/{aktifitas}', [AdminAktifitasController::class, 'destroy'])->name('aktifitas.delete');
-  // Route::put('dashboard/aktifitas/update/{aktifitas}', [AdminAktifitasController::class, 'update'])->name('aktifitas.update');
-  // Route::delete('dashboard/aktifitas/delete/{aktifitas}', [AdminAktifitasController::class, 'destroy'])->name('aktifitas.destroy');
-
-  // Route::put('dashboard/criterias/update/{criteria}', [AdminCriteriaController::class, 'update'])->name('criterias.update');
-  // Route::delete('dashboard/criterias/delete/{criteria}', [AdminCriteriaController::class, 'destroy'])->name('criterias.destroy');
-
-  // Route::put('dashboard/users/update/{user}', [AdminUserController::class, 'update'])->name('users.update');
-  // Route::delete('dashboard/users/delete/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
-
-  // Route::put('dashboard/alternatives/update/{alternative}', [AdminAlternativeController::class, 'update'])->name('alternatives.update');
-  // Route::delete('dashboard/alternatives/delete/{alternative}', [AdminAlternativeController::class, 'destroy'])->name('alternatives.destroy');
+  Route::get('dashboard/aktifitas', [AktifitasController::class, 'index'])->name('aktifitas');
+  Route::get('dashboard/aktifitas/create', [AktifitasController::class, 'create'])->name('aktifitas.form');
+  Route::post('dashboard/aktifitas/createP', [AktifitasController::class, 'store'])->name('aktifitas.tambah');
+  Route::get('dashboard/aktifitas/{aktifitas}/edit', [AktifitasController::class, 'edit'])->name('aktifitas.form.edit');
+  Route::put('dashboard/aktifitas/update/{aktifitas}', [AktifitasController::class, 'update'])->name('aktifitas.update');
+  Route::delete('dashboard/aktifitas/destroy/{aktifitas}', [AktifitasController::class, 'destroy'])->name('aktifitas.delete');
 });

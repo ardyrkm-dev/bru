@@ -5,12 +5,12 @@
     <h1 class="h2">Edit {{ $criteria->name }}</h1>
   </div>
 
-  <form class="col-lg-8" method="POST" action="/dashboard/criterias/{{ $criteria->id }}">
+  <form class="col-lg-8 containerForm" method="POST" action="/dashboard/criterias/{{ $criteria->id }}">
     @method('PUT')
     @csrf
 
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
+      <label for="name" class="form-label labelFormBaru">Name</label>
       <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $criteria->name) }}" autofocus required>
 
       @error('name')
@@ -21,7 +21,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="attribute" class="form-label">Attribute</label>
+      <label for="attribute" class="form-label labelFormBaru">Attribute</label>
       <select class="form-select @error("attribute") is-invalid @enderror" id="attribute" name="attribute" required>
         <option value="" disabled selected>Choose One</option>
         <option value="BENEFIT" {{ old('attribute', $criteria->attribute) === 'BENEFIT' ?  'selected' : '' }}>Benefit</option>
@@ -35,7 +35,7 @@
       @enderror
     </div>
 
-    <button type="submit" class="btn btn-primary mb-3">Save Changes</button>
+    <button type="submit" class="btn btn-primary mb-3">Simpan</button>
     <a href="/dashboard/criterias" class="btn btn-danger mb-3">Cancel</a>
   </form>
 @endsection

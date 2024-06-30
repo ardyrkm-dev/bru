@@ -7,39 +7,33 @@
     <title>{{ $title }} | FitSolusi</title>
 
  
-    @include('partials.includes.style')
+    @include('includes.Dashboard.style')
 
 
   </head>
   <body>
 
-	<!-- Page content -->
 	<div class="page-content">
 
-		<!-- Main sidebar -->
 		<div class="sidebar sidebar-light sidebar-main sidebar-expand-lg">
 
-			@include('partials.sidebar2')
+			@include('includes.Dashboard.navbarKiri')
 		</div>
-		<!-- /main sidebar -->
-
-		<!-- Main content -->
+		
 		<div class="content-wrapper bgC  scrol">
 
-		    {{-- @include('partials.topbar2') --}}
-			{{-- <h1 class="center">Welcome Back !!</h1> --}}
+		  
             @yield('content')
 
 		</div>
-		<!-- /main content -->
+		
 
 	</div>
-	<!-- /page content -->
 
 
-        <!-- Script -->
+       
     @stack('prepend-script')
-    @include('partials.includes.script')
+    @include('includes.Dashboard.script')
     @stack('addon-script')
 
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
@@ -50,9 +44,26 @@
     <script src="/assets/js/script.js"></script>
     <script src="/assets/js/dashboard.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Your custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarControl = document.querySelectorAll('.sidebar-control');
+            const sidebar = document.querySelector('.sidebar-content');
 
+            sidebarControl.forEach(control => {
+                control.addEventListener('click', function() {
+                    sidebar.classList.toggle('sidebar-collapsed');
+                });
+            });
+        });
+    </script>
 
-    {{-- alert from session --}}
+   
     @if (session()->has('success'))
       <script>
         Swal.fire({

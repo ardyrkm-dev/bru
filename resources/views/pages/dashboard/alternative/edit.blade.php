@@ -5,12 +5,12 @@
     <h1 class="h2">Edit {{ $alternative->name }}'s Values</h1>
   </div>
 
-  <form class="col-lg-8" method="POST" action="/dashboard/alternatives/{{ $alternative->id }}">
+  <form class="col-lg-8 containerForm" method="POST" action="/dashboard/alternatives/{{ $alternative->id }}">
     @method('PUT')
     @csrf
 
     <div class="mb-3">
-      <label for="name" class="form-label">Selected Tourism Name</label>
+      <label for="name" class="form-label labelFormBaru">Pilih Aktifitas</label>
       <input type="text" class="form-control" id="name" value="{{ old('name', $alternative->name) }}" readonly required>
 
       @error('name')

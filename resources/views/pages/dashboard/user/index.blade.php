@@ -11,13 +11,13 @@
       Buat
     </a>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th scope="col" class="text-center clrT">No</th>
-          <th scope="col" class="text-center clrT">Name</th>
+          <th scope="col" class="text-center clrT">Nama</th>
           <th scope="col" class="text-center clrT">Username</th>
-          <th scope="col" class="text-center clrT">Level</th>
+          <th scope="col" class="text-center clrT">Posisi</th>
           <th scope="col" class="text-center clrT">Action</th>
         </tr>
       </thead>

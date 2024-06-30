@@ -11,7 +11,7 @@
       Buat Baru
     </a>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th scope="col" class="text-center clrT">No</th>
@@ -29,15 +29,15 @@
               <td class="text-center clrT">{{ $object->name }}</td>
               <td class="text-center clrT">{{ $object->kalori }}</td>
               <td class="text-center clrT">
-                <a href="{{route('aktifitas.edit', ['aktifita' => $aktifitas->id])}}" class="text-decoration-none text-success">
-                  <span data-feather="edit"></span>
+                <a href="{{route('aktifitas.edit', ['aktifita' => $aktifitas->id])}}" class="btn btn-custom text-decoration-none">
+                  Update
                 </a>
                 <form action="/dashboard/aktifitas/{{ $object->id }}" method="POST" class="d-inline">
                   @method('delete')
                   @csrf
 
-                  <span role="button" class="text-decoration-none text-danger btnDelete" data-object="tourism object">
-                    <span data-feather="x-circle"></span>
+                  <span role="button" class="btn btn-custom text-decoration-none" data-object="tourism object">
+                    Hapus
                   </span>
                 </form>
               </td>

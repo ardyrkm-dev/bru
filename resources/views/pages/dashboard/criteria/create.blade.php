@@ -5,11 +5,11 @@
     <h1 class="h2">Buat Kriteria</h1>
   </div>
 
-  <form class="col-lg-8" method="POST" action="/dashboard/criterias">
+  <form class="col-lg-8 containerForm" method="POST" action="/dashboard/criterias">
     @csrf
 
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
+      <label for="name" class="form-label labelFormBaru">Name</label>
       <input type="text" class="form-control formcss @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" autofocus required>
 
       @error('name')
@@ -20,7 +20,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="attribute" class="form-label">Attribute</label>
+      <label for="attribute" class="form-label labelFormBaru">Attribute</label>
       <select class="form-select formcss @error("attribute") is-invalid @enderror" id="attribute" name="attribute" required>
         <option value="" disabled selected>Choose One</option>
         <option value="BENEFIT" {{ old('attribute') === 'BENEFIT' ?  'selected' : '' }}>Benefit</option>

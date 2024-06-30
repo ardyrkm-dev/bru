@@ -8,12 +8,12 @@
   <div class="table-responsive col-lg-10">
     <a href="{{route('aktifitas.form')}}" class="btn btnBaru mb-3">Buat</a>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th scope="col" class="text-center clrT">No</th>
-          <th scope="col" class="text-center clrT">Name</th>
-          <th scope="col" class="text-center clrT">Attribute</th>
+          <th scope="col" class="text-center clrT">Gambar</th>
+          <th scope="col" class="text-center clrT">Nama</th>
           <th scope="col" class="text-center clrT">Action</th>
         </tr>
       </thead>
@@ -22,16 +22,16 @@
           @foreach ($aktifitas as $a)
             <tr>
               <td class="text-center clrT">{{ $loop->iteration }}</td>
+              <td class="text-center clrT"><img style="width: 100px; height:100px;" src="{{asset('fotoAktifitas/' .$a->gambar)}}" alt=""></td>
               <td class="text-center clrT">{{ $a->name }}</td>
-              <td class="text-center clrT">{{ $a->kalori }}</td>
               <td class="text-center clrT">
-                <a href="{{route('aktifitas.form.edit', $a->id)}}" class="text-decoration-none text-success">
-                  <span data-feather="edit"></span>
+                <a href="{{route('aktifitas.form.edit', $a->id)}}" class="btn btn-custom text-decoration-none">
+               Update
                 </a>
                 <form action="{{route('aktifitas.delete', $a->id)}}" method="POST" class="d-inline">
                   @method('delete')
                   @csrf
-                <button type="submit">
+                <button type="submit" class="btn btn-custom text-decoration-none">
                   Hapus
                 </button>
                 </form>
